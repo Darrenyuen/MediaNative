@@ -1,7 +1,9 @@
 #include <jni.h>
 #include <string>
-#include <android/log.h>
+#include "logutil.h"
 
+
+#define TAG = "adfadf"
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_example_medianative_MainActivity_stringFromJNI(
         JNIEnv* env,
@@ -14,7 +16,7 @@ Java_com_example_medianative_MainActivity_stringFromJNI(
 //    }
     int res = 5 / 0;
     std::basic_string<char, std::char_traits<char>, std::allocator<char>> resStr = std::to_string(res);
-    __android_log_print(ANDROID_LOG_DEBUG, "TAG6666666666", "%s", resStr.c_str());
+    LOGI("%s", resStr.c_str());
     hello.append(resStr);
     return env->NewStringUTF(hello.c_str());
 }

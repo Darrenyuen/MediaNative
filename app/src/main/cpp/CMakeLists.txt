@@ -13,6 +13,9 @@ project("medianative")
 # or SHARED, and provides the relative paths to its source code.
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
+# 把cpp目录下的文件都编进libmedianative.so
+file(GLOB COMMON_SRC_LIST
+        ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
 add_library( # Sets the name of the library.
         medianative
@@ -21,7 +24,7 @@ add_library( # Sets the name of the library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        native-lib.cpp)
+        ${COMMON_SRC_LIST})
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
